@@ -1,1 +1,2 @@
-import './html-equal.test.js';
+import './html-equal.js';
+import './Profile.test.js';
