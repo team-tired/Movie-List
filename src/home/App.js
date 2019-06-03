@@ -6,7 +6,7 @@ class App extends Component {
     render() {
         const dom = this.renderDOM();
 
-        const header = new Header();
+        const header = new Header({ title: 'Welcome to Watchy Things' });
         const headerDOM = header.render();
         const main = dom.querySelector('main');
         dom.insertBefore(headerDOM, main);
