@@ -1,6 +1,7 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieList from '../shared/movieList.js';
+import movieApi from '../services/movie-api.js';
 
 class App extends Component {
 
@@ -14,6 +15,20 @@ class App extends Component {
 
         const movieList = new MovieList({ movies: [] });
         main.appendChild(movieList.render());
+
+        function loadMovies() {
+            movieApi.getMovies()
+                .then(response => {
+                    const movies = response.results;
+                    movieList.update({ movies });
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+
+        }
+
+        loadMovies();
 
         return dom;
     }
