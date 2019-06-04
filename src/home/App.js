@@ -3,6 +3,8 @@ import Header from '../shared/Header.js';
 import MovieList from '../shared/movieList.js';
 import movieApi from '../services/movie-api.js';
 import Search from './Search.js';
+import hashStorage from '../hash-storage.js';
+import QUERY from '../QUERY.js';
 
 class App extends Component {
 
@@ -14,14 +16,16 @@ class App extends Component {
         const headerDOM = header.render();
         dom.insertBefore(headerDOM, main);
         
-        const search = new Search();
+        const search = new Search({ query: 'movie' });
         main.appendChild(search.render());
 
         const movieList = new MovieList({ movies: [] });
         main.appendChild(movieList.render());
 
         function loadMovies() {
-            movieApi.getMovies()
+
+            const queryProps = hashStorage.get();
+            movieApi.getMovies(queryProps.movie)
                 .then(response => {
                     const movies = response.results;
                     movieList.update({ movies });
@@ -33,6 +37,10 @@ class App extends Component {
         }
 
         loadMovies();
+
+        window.addEventListener('hashchange', () => {
+            loadMovies();
+        });
 
         return dom;
     }
