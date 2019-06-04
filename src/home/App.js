@@ -4,7 +4,6 @@ import MovieList from '../shared/movieList.js';
 import movieApi from '../services/movie-api.js';
 import Search from './Search.js';
 import hashStorage from '../hash-storage.js';
-import QUERY from '../QUERY.js';
 
 class App extends Component {
 
