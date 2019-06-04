@@ -14,6 +14,12 @@ const hashStorage = {
         window.location.hash = QUERY.stringify(getObject);     
     },
     
+    remove(key) {
+        const target = this.get();
+        delete target[key];
+        window.location.hash = QUERY.stringify(target);
+    }
+    
 };
 
 export default hashStorage;
