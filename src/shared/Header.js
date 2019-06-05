@@ -21,6 +21,10 @@ class Header extends Component {
         return /*html*/`
             <header>
                 <h1>${title}</h1>
+                <nav class="main-nav">
+                    <a href="./">Home</a>
+                    <a href="./favorites.html">Favorites</a>
+                </nav>
             </header>
         `;
     }
