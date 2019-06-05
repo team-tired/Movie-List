@@ -8,7 +8,7 @@ class UserFavorites extends Component {
         const dom = this.renderDOM();
         const main = dom.querySelector('main');
 
-        const header = new Header({ title: 'Favorite Movies' });
+        const header = new Header();
         dom.insertBefore(header.render(), main);
 
         const movieList = new MovieList({ movies: [] });

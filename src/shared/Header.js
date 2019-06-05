@@ -16,11 +16,9 @@ class Header extends Component {
         return dom;
     }
     renderTemplate() {
-        const title = this.props.title || document.title;
-
         return /*html*/`
             <header>
-                <h1>${title}</h1>
+                <img id="header-image" src="../assets/watchy-things.png">
                 <nav class="main-nav">
                     <a href="./">Home</a>
                     <a href="./favorites.html">Favorites</a>
