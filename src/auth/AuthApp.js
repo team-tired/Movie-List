@@ -9,7 +9,7 @@ class AuthApp extends Component {
     render() { 
         const dom = this.renderDOM();
 
-        const header = new Header({ title: 'Sign up for watchy things' });
+        const header = new Header();
         const main = dom.querySelector('main');
         dom.insertBefore(header.render(), main);
 

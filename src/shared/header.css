@@ -1,0 +1,34 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header-image {
+    width: 500px;
+}
+
+.main-nav {
+    text-align: center;
+ }
+ 
+ .main-nav a {
+    margin-right: 5px;
+    padding: 0 10px;
+    border: 1px solid #aaa;
+    color: black;
+    background: white;
+    text-decoration: none;
+ }
+ 
+ .main-nav a:hover {
+ 
+    border: 1px solid #aaa;
+    color: white;
+    background: #aaa;
+    text-decoration: none;
+ }
+ 
+ .main-nav a.active {
+    color: red;
+ }
