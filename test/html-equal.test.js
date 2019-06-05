@@ -5,22 +5,22 @@ QUnit.module('html equal');
 
 
 test('normalizes whitespace', (assert) => {
-    // Arrange
+   // Arrange
     const html = /*html*/`
-            <div>
-                <span>hello</span>
-            </div>
-    `;
+           <div>
+               <span>hello</span>
+           </div>
+   `;
 
     const expected = /*html*/`
-        <div>
-                <span>hello</span>
-        </div>
-    `;
+       <div>
+               <span>hello</span>
+       </div>
+   `;
 
-    // Act
-    // now built in as custom assert
+   // Act
+   // now built in as custom assert
 
-    // Assert
+   // Assert
     assert.htmlEqual(html, expected);
 });
