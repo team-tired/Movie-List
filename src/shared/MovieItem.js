@@ -19,7 +19,7 @@ class MovieItem extends Component {
                     userMovieRef.set({
                         id: movies.id,
                         title: movies.title,
-                        photo: movies.poster_path
+                        poster_path: movies.poster_path
                     });
                 } else {
                     userMovieRef.remove();
@@ -49,3 +49,5 @@ class MovieItem extends Component {
     }
 }
 export default MovieItem;
+
+{/* <img src="http://image.tmdb.org/t/p/w200${movies.poster_path}"></img> */}
