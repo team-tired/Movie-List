@@ -21,11 +21,19 @@ class MovieItem extends Component {
                         title: movies.title,
                         photo: movies.poster_path
                     });
+                } else {
+                    userMovieRef.remove();
                 }
+                
             }
         });
         container.appendChild(favorite.render());
 
+        userMovieRef.on('value', snapshot => {
+            const isFavorite = Boolean(snapshot.val());
+            favorite.update({ isFavorite });
+        });
+        
         return dom;
     }
 
