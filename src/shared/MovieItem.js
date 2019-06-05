@@ -49,5 +49,3 @@ class MovieItem extends Component {
     }
 }
 export default MovieItem;
-
-{/* <img src="http://image.tmdb.org/t/p/w200${movies.poster_path}"></img> */}
