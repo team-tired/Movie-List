@@ -33,7 +33,7 @@ class MovieItem extends Component {
             const isFavorite = Boolean(snapshot.val());
             favorite.update({ isFavorite });
         });
-        
+
         return dom;
     }
 
