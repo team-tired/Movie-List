@@ -1,6 +1,7 @@
 import Component from '../Component.js';
 import { updateFavorites, getUserFavoritesRef } from '../services/actions.js';
 import Favorite from '../shared/Favorite.js';
+import UserMovieList from './UserMovieList.js';
 
 class MovieDetail extends Component {
     render() {
@@ -27,6 +28,9 @@ class MovieDetail extends Component {
             });
 
         }
+
+        const userMovieList = new UserMovieList({ users: [] });
+        dom.appendChild(userMovieList.render());
     
         return dom;
     }
