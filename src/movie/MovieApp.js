@@ -2,6 +2,7 @@ import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieDetail from './MovieDetail.js';
 import QUERY from '../QUERY.js';
+import movieApi from '../services/movie-api.js';
 
 class MovieApp extends Component {
     render() {
@@ -20,6 +21,14 @@ class MovieApp extends Component {
         if(!id) {
             window.location = './';
         }
+
+        movieApi.getMovie(id)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => {
+                console.log(err);
+            });
 
         return dom;
     }
