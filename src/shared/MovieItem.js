@@ -1,7 +1,6 @@
 import Component from '../Component.js';
 import Favorite from './Favorite.js';
-import { auth, userFavoritesRef } from '../services/firebase.js';
-import { updateFavorites } from '../services/actions.js';
+import { updateFavorites, getUserFavoritesRef } from '../services/actions.js';
 
 class MovieItem extends Component {
     render() {
@@ -9,9 +8,8 @@ class MovieItem extends Component {
         const container = dom.querySelector('.favorite-container');
         const movies = this.props.movies;
     
-        const userMovieRef = userFavoritesRef
-            .child(auth.currentUser.uid)
-            .child(movies.id);
+        const id = movies.id;
+        const userMovieRef = getUserFavoritesRef(id);
 
         const favorite = new Favorite({
             isFavorite: false,
