@@ -25,3 +25,22 @@ test('to return data from API', assert => {
     //assert
     assert.deepEqual(rendered, expected);
 });
+
+test('returns empty div if no data', assert => {
+    //arrange
+    const movie = null;
+    const movieDetail = new MovieDetail({ movie });
+
+    const expected = /*html*/ `
+            <section>
+                <p>${movie.title}</p>
+                <img src="http://image.tmdb.org/t/p/w200${movie.poster_path}">
+                <p>${movie.overview}</p>
+                <p>${movie.release_date}</p>
+            </section>
+        `;
+    //act
+    const rendered = movieDetail.renderTemplate();
+    //assert
+    assert.deepEqual(rendered, expected);
+});
