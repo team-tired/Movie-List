@@ -11,6 +11,7 @@ class MovieDetail extends Component {
         if(movie) {
             const id = movie.id;
             const userMovieRef = getUserFavoritesRef(id);
+            
     
             const favorite = new Favorite({
                 isFavorite: false,
