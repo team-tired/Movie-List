@@ -57,7 +57,7 @@ class MovieDetail extends Component {
                 <img src="http://image.tmdb.org/t/p/w200${movie.poster_path}">
                 <p>Movie Synopsis: ${movie.overview}</p>
                 <p>Release Date: ${movie.release_date}</p>
-                <h2>Other users who have "favorited" ${movie.title}</h2>
+                <h2>Other users who have "favorited" ${movie.title}:</h2>
             </section>
         `;
     }

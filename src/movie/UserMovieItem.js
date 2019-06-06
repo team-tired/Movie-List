@@ -3,9 +3,17 @@ import Component from '../Component.js';
 class UserMovieItem extends Component {
     renderTemplate() {
         const user = this.props.user;
+        if(!user) {
+            return `<div></div>`;
+        }
+
+        const avatar = user.photoURL || './assets/default-avatar.png';
         return /*html*/`
             <li>
-                <a href=""><h3>${user.displayName}</h3></a>
+                <span>
+                    <img id="avatar" src="${avatar}">   
+                    <a href=""><p>${user.displayName}</p></a>
+                </span>
             </li>
         `;
     }
