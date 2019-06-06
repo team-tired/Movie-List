@@ -23,11 +23,11 @@ class MovieApp extends Component {
         }
 
         movieApi.getMovie(id)
-            .then(response => {
-                console.log(response);
+            .then(movieResult => {
+                movieDetail.update({ movie: movieResult });
             })
             .catch(err => {
-                console.log(err);
+                (err);
             });
 
         return dom;
