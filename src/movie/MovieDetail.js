@@ -7,23 +7,26 @@ class MovieDetail extends Component {
         const dom = this.renderDOM();
         const container = dom.querySelector('.favorite-container');
         const movies = this.props.movies;
+
+        if(movies) {
+            const id = movies.id;
+            const userMovieRef = getUserFavoritesRef(id);
     
-        const id = movies.id;
-        const userMovieRef = getUserFavoritesRef(id);
+            const favorite = new Favorite({
+                isFavorite: false,
+                onFavorite: (makeFavorite) => {
+                    updateFavorites(movies, makeFavorite, userMovieRef);
+                }
+            });
+            container.appendChild(favorite.render());
+    
+            userMovieRef.on('value', snapshot => {
+                const isFavorite = Boolean(snapshot.val());
+                favorite.update({ isFavorite });
+            });
 
-        const favorite = new Favorite({
-            isFavorite: false,
-            onFavorite: (makeFavorite) => {
-                updateFavorites(movies, makeFavorite, userMovieRef);
-            }
-        });
-        container.appendChild(favorite.render());
-
-        userMovieRef.on('value', snapshot => {
-            const isFavorite = Boolean(snapshot.val());
-            favorite.update({ isFavorite });
-        });
-
+        }
+    
         return dom;
     }
 
