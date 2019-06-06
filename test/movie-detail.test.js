@@ -26,16 +26,16 @@ test('renders template from data', assert => {
     assert.htmlEqual(html, expected);
 });
 
-// test('returns empty div if no data', assert => {
-//     //arrange
-//     const movie = null;
-//     const movieDetail = new MovieDetail({ movie });
+test('returns empty div if no data', assert => {
+    //arrange
+    const movie = null;
+    const movieDetail = new MovieDetail({ movie });
 
-//     const expected = /*html*/ `
-//             <div></div>
-//         `;
-//     //act
-//     const html = movieDetail.renderTemplate();
-//     //assert
-//     assert.htmlEqual(html, expected);
-// });
+    const expected = /*html*/ `
+            <div></div>
+        `;
+    //act
+    const html = movieDetail.renderTemplate();
+    //assert
+    assert.htmlEqual(html, expected);
+});

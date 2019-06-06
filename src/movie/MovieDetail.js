@@ -3,6 +3,11 @@ import Component from '../Component.js';
 class MovieDetail extends Component {
     renderTemplate() {
         const movie = this.props.movie;
+        if(!movie) {
+            return /*html*/ `
+            <div></div>
+            `; 
+        }
         return /*html*/`
             <section>
                 <p>${movie.title}</p>
