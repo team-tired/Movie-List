@@ -3,9 +3,14 @@ import UserMovieItem from './UserMovieItem.js';
 class UserMovieList extends Component {
     render() {
         const dom = this.renderDOM();
+        const users = this.props.users;
+       
 
-        const userMovieItem = new UserMovieItem();
-        dom.appendChild(userMovieItem.render());
+        users.forEach(user => {
+            const userMovieItem = new UserMovieItem({ user });
+            dom.appendChild(userMovieItem.render());
+        });
+
 
         return dom;
     }
@@ -18,3 +23,4 @@ class UserMovieList extends Component {
     }
 }
 export default UserMovieList;
+

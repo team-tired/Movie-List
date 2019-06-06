@@ -2,6 +2,7 @@ import Component from '../Component.js';
 import { updateFavorites, getUserFavoritesRef } from '../services/actions.js';
 import Favorite from '../shared/Favorite.js';
 import UserMovieList from './UserMovieList.js';
+import { movieFavoritesRef } from '../services/firebase.js';
 
 class MovieDetail extends Component {
     render() {
@@ -12,7 +13,6 @@ class MovieDetail extends Component {
         if(movie) {
             const id = movie.id;
             const userMovieRef = getUserFavoritesRef(id);
-            
     
             const favorite = new Favorite({
                 isFavorite: false,
@@ -26,11 +26,19 @@ class MovieDetail extends Component {
                 const isFavorite = Boolean(snapshot.val());
                 favorite.update({ isFavorite });
             });
-
+            
+            const userMovieList = new UserMovieList({ users: [] });
+            dom.appendChild(userMovieList.render());
+    
+            const movieUsersRef = movieFavoritesRef.child(movie.id);
+    
+            movieUsersRef.on('value', snapshot => {
+                const value = snapshot.val();
+                const users = value ? Object.values(value) : [];
+                userMovieList.update({ users });
+            });
         }
 
-        const userMovieList = new UserMovieList({ users: [] });
-        dom.appendChild(userMovieList.render());
     
         return dom;
     }
