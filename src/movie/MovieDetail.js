@@ -55,8 +55,9 @@ class MovieDetail extends Component {
             <div class="favorite-container"></div>
                 <p>${movie.title}</p>
                 <img src="http://image.tmdb.org/t/p/w200${movie.poster_path}">
-                <p>${movie.overview}</p>
-                <p>${movie.release_date}</p>
+                <p>Movie Synopsis: ${movie.overview}</p>
+                <p>Release Date: ${movie.release_date}</p>
+                <h2>Other users who have "favorited" ${movie.title}</h2>
             </section>
         `;
     }
