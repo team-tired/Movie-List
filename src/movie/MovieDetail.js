@@ -1,4 +1,5 @@
 import Component from '../Component.js';
+
 class MovieDetail extends Component {
     renderTemplate() {
         const movie = this.props.movie;
