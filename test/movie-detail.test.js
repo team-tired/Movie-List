@@ -14,6 +14,7 @@ test('renders template from data', assert => {
 
     const expected = /*html*/ `
             <section>
+            <div class="favorite-container"></div>
                 <p>Captain Marvel</p>
                 <img src="http://image.tmdb.org/t/p/w200/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg">
                 <p>The story follows Carol Danvers as she becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe.</p>

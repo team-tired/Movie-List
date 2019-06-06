@@ -10,6 +10,7 @@ class MovieDetail extends Component {
         }
         return /*html*/`
             <section>
+            <div class="favorite-container"></div>
                 <p>${movie.title}</p>
                 <img src="http://image.tmdb.org/t/p/w200${movie.poster_path}">
                 <p>${movie.overview}</p>
