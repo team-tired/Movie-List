@@ -12,7 +12,7 @@ class UserMovieItem extends Component {
             <li>
                 <span>
                     <img id="avatar" src="${avatar}">   
-                    <a href=""><p>${user.displayName}</p></a>
+                    <a href="./favorites.html?id=${user.uid}"><p>${user.displayName}</p></a>
                 </span>
             </li>
         `;

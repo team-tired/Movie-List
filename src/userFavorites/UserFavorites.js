@@ -2,6 +2,7 @@ import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieList from '../shared/MovieList.js';
 import { auth, userFavoritesRef } from '../services/firebase.js';
+import QUERY from '../QUERY.js';
 
 class UserFavorites extends Component {
     render() {
@@ -14,8 +15,11 @@ class UserFavorites extends Component {
         const movieList = new MovieList({ movies: [] });
         main.appendChild(movieList.render());
 
+        const query = QUERY.parse(window.location.search);
+        const uid = query.id ? query.id : auth.currentUser.uid;
+
         userFavoritesRef
-            .child(auth.currentUser.uid)
+            .child(uid)
             .on('value', snapshot => {
                 const value = snapshot.val();
                 const movies = value ? Object.values(value) : [];
