@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieList from '../shared/MovieList.js';
-import { auth, userFavoritesRef } from '../services/firebase.js';
+import { auth, userFavoritesRef, userRef } from '../services/firebase.js';
 import QUERY from '../QUERY.js';
 
 class UserFavorites extends Component {
@@ -25,12 +25,25 @@ class UserFavorites extends Component {
                 const movies = value ? Object.values(value) : [];
                 movieList.update({ movies });
             });
+
+        const userNameDisplay = dom.querySelector('.display-user');
+
+        if(uid === auth.currentUser.uid) {
+            userNameDisplay.textContent = 'Your Favorite Movies';
+        } else {
+            userRef.child(uid)
+                .on('value', snapshot => {
+                    const user = snapshot.val();
+                    userNameDisplay.textContent = `Movies liked by ${user.displayName}`;
+                });
+        }
         return dom;
     }
     renderTemplate() {
         return /*html*/`
         <div>
             <main>
+                <h1 class="display-user"></h1>
             </main>
         </div>
         `;
