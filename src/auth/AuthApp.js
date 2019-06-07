@@ -1,6 +1,6 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
-import { auth,  userRef } from '../services/firebase.js';
+import { auth, userRef } from '../services/firebase.js';
 
 const ui = new firebaseui.auth.AuthUI(auth);
 
