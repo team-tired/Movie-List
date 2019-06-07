@@ -25,8 +25,6 @@ class UserFavorites extends Component {
                 const movies = value ? Object.values(value) : [];
                 movieList.update({ movies });
             });
-
-
         return dom;
     }
     renderTemplate() {
