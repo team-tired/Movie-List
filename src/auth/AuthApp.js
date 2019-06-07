@@ -33,8 +33,6 @@ class AuthApp extends Component {
                 }
             }
         });
-
-
         return dom;
     }
     renderTemplate() {
