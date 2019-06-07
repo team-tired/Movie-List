@@ -1,6 +1,6 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
-import { auth } from '../services/firebase.js';
+import { auth, userRef } from '../services/firebase.js';
 
 const ui = new firebaseui.auth.AuthUI(auth);
 
@@ -9,7 +9,7 @@ class AuthApp extends Component {
     render() { 
         const dom = this.renderDOM();
 
-        const header = new Header({ title: 'Sign up for watchy things' });
+        const header = new Header();
         const main = dom.querySelector('main');
         dom.insertBefore(header.render(), main);
 
@@ -19,9 +19,20 @@ class AuthApp extends Component {
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID
             ],
             signInSuccessUrl: './',
-            credentialHelper: firebaseui.auth.CredentialHelper.NONE
+            credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+            callbacks: {
+                signInSuccessWithAuthResult(authResult) {
+                    const user = authResult.user;
+                    userRef.child(user.uid)
+                        .set({
+                            uid: user.uid,
+                            displayName: user.displayName,
+                            photoURL: user.photoURL
+                        });
+                    return true;
+                }
+            }
         });
-
         return dom;
     }
     renderTemplate() {

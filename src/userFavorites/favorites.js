@@ -1,10 +1,10 @@
-import '../utils/check-auth.js';
-import App from './App.js';
+import UserFavorites from './UserFavorites.js';
 import { auth } from '../services/firebase.js';
+import '../utils/check-auth.js';
 
 const root = document.getElementById('app');
 
 auth.onAuthStateChanged(() => {
-    const app = new App();
+    const app = new UserFavorites();
     root.appendChild(app.render());
 });

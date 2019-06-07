@@ -1,0 +1,25 @@
+a {
+    color: black;
+    font-weight: lighter;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#avatar {
+    border-radius: 100%;
+    margin-right: 5px;
+}
+
+span {
+    display: flex;
+    align-items: center;
+}
